@@ -18,6 +18,10 @@ These files are snapshots. To pull your own slice on demand (one NAICS code, one
 
 There are also [n8n templates](https://github.com/ArtificiallyLTD/n8n-business-data-templates) that send this data to Google Sheets or Slack on a schedule.
 
+## Use this data inside Claude
+
+Prefer to just ask? The [Artificially Data plugin for Claude Code](https://github.com/ArtificiallyLTD/claude-skills) lets Claude pull the same data on request ("open cybersecurity contracts in Virginia due this month", "what are my competitors hiring for?"), paid per answer from [prepaid credits](https://artificially-data.netlify.app). Install it with `/plugin install artificially-data --marketplace ArtificiallyLTD/claude-skills`.
+
 ## How the data is built
 
 `scripts/refresh.py` runs the Actors through the Apify API and writes one CSV and one JSON per dataset. A GitHub Action reruns it every Monday. Personal contact details (names, emails, phone numbers) are left out on purpose: each row links to the original record if you need more.
